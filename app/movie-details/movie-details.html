@@ -1,0 +1,117 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <img ng-src="{{$ctrl.movieDetails.imageUrl}}" alt="{{ $ctrl.movieDetails.original_title }}">
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <h3>{{ $ctrl.movieDetails.original_title}}({{ $ctrl.movieDetails.release_date | date: 'yyyy'}})
+      </div>
+      <div class="row">
+        <ul class="list-inline">
+          <li>
+            <div class="circle" id="rating_circle"></div>
+          </li>
+          <li><a href="#"><span class="glyphicon glyphicon-th-list"></span></a><li>
+          <li><a href="#"><span class="glyphicon glyphicon-heart"></span></a><li>
+          <li><a href="#"><span class="glyphicon glyphicon-star-empty"></span></a><li>
+          <li><a href="#"><span class="glyphicon glyphicon-bookmark"></span></a><li>
+        </ul>
+      </div>
+      <div class="row">
+        <p>Overview</p>
+        <p>{{ $ctrl.movieDetails.overview }}</p>
+      </div>
+      <div class="row">
+        <p>Featured Cast</p>
+        <ul class="list-inline">
+          <li ng-repeat='genre in $ctrl.movieDetails.genres'>
+            {{ genre.name }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation"><a href="" ng-click="$ctrl.setTab(1)">Discussion</a></li>
+        <li role="presentation"><a href="" ng-click="$ctrl.setTab(2)">Reviews</a></li>
+        <li role="presentation"><a href="" ng-click="$ctrl.setTab(3)">Videos</a></li>
+        <li role="presentation"><a href="" ng-click="$ctrl.setTab(4)">Images</a></li>
+        <li role="presentation"><a href="" ng-click="$ctrl.setTab(5)">Extra</a></li>
+      </ul>
+      <div ng-show='$ctrl.isSet(1)'>
+        <h3>Feature Cast</h3>
+        <div class="movieCastCarousel">
+          <div class='panel panel-default col-md-3 movie-cast' ng-repeat='member in $ctrl.movieCast | limitTo: 6'>
+            <div class="panel-body">
+              <img ng-src='{{ $ctrl.profileBaseUrl}}{{ member.profile_path }}'>
+            </div>
+            <div class="panel-footer">
+              <p>{{ member.name }}</p>
+              <p>{{ member.character }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-show='$ctrl.isSet(2)'>
+        <h3>Recommended Movies</h3>
+        <div class="recommendedMovieCarousel">
+          <div class='panel panel-default col-md-4' ng-repeat='movie in $ctrl.recommendedMovies | limitTo: 3'>
+            <div class="panel-body">
+              <img ng-src='{{ $ctrl.imageBaseUrl }}{{ movie.backdrop_path }}'>
+            </div>
+            <div class="panel-footer">
+              {{ movie.original_title }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-show='$ctrl.isSet(3)'>Tab 3</div>
+      <div ng-show='$ctrl.isSet(4)'>Tab 4</div>
+      <div ng-show='$ctrl.isSet(5)'>Tab 5</div>
+    </div>
+    <div class="col-md-3">
+      <h3>Facts</h3>
+      <ul>
+        <li>
+          Status:
+          <p>{{ $ctrl.movieDetails.status }}</p>
+        </li>
+        <li>
+          Release Information:
+          <p>{{ $ctrl.movieDetails.release_date }}
+        </li>
+        <li>
+          Original Language:
+          <p>{{ $ctrl.movieDetails.original_language }}</p>
+        </li>
+        <li>
+          Runtime:
+          <p>{{ $ctrl.movieDetails.runtime }} mins</p>
+        </li>
+        <li>
+          Budget:
+          <p>{{ $ctrl.movieDetails.budget | currency }}</p>
+        </li>
+        <li>
+          Revenue:
+          <p>{{ $ctrl.movieDetails.revenue | currency}}</p>
+        </li>
+        <li>
+          Homepage:
+          <p><a href="{{ $ctrl.movieDetails.homepage }}">{{ $ctrl.movieDetails.homepage }}</a></p>
+        </li>
+        <li>
+          Generes:
+            <ul class="list-inline">
+              <li ng-repeat='genre in $ctrl.movieDetails.genres'>
+                {{ genre.name }}
+              </li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.panel-default{
+  padding: 0;
+}
+.panel-body{
+  padding: 0;
+}
+.panel-footer{
+  font-size: 0.87em;
+}
+.movie-cast{
+  max-width: 130px;
+  margin: 5px;
+}
+
+.movie-thumbnail{
+  max-width: 185px;
+  max-height: 278px;
+  float: left;
+}
+
+.clearfix::after {
+   content: " ";
+   display: block;
+   height: 0;
+   clear: both;
+   *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML += '<div class="ie7-clear"></div>' );
+}

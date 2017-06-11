@@ -1,0 +1,10 @@
+<div class="container">
+  {{ $ctrl.baseImageUrl}}
+  <div class="row clearfix" infinite-scroll="$ctrl.myPagingFunction()" infinite-scroll-distance="1">
+    <div class="col-md-2 movie-thumbnail" ng-repeat='movie in $ctrl.returnedMoviesPopular'>
+      <a ng-href='/#!/movie/{{movie.id}}'>
+        <img ng-src="{{ $ctrl.baseImageUrl }}{{ movie.poster_path }}">
+      </a>
+    </div>
+  </div>
+</div>
