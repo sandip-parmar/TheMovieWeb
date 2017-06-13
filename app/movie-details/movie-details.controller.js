@@ -20,7 +20,8 @@ angular.module('movieDetails')
     }
 
     // Get movie data
-    MovieService.getMovie(this.queryValue)
+
+      MovieService.getMovie(this.queryValue)
       .then(
         function(success){
           self.movieDetails = success.data;

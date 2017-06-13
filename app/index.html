@@ -39,6 +39,11 @@
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -57,11 +62,21 @@
   <script src="movie-details/movie-details.component.js"></script>
   <script src="movie-details/movie-details.controller.js"></script>
   <script src="app.config.js"></script>
-  <!-- <script src="movies/movies.service.js"></script> -->
+  <script src="movie-details/movie.directive.js"></script>
+  <script src="movie-details/movie-widget.controller.js"></script>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+  <!-- Navigation module -->
+  <script src="navigation/navigation.module.js"></script>
+  <script src="navigation/navigation.directive.js"></script>
+  <script src="navigation/navigation.controller.js"></script>
+
+  <!-- Auth module -->
+  <script src="auth/auth.module.js"></script>
+  <script src="auth/auth.service.js"></script>
+  <script src="auth/auth.controller.js"></script>
+  <script src="auth/login.directive.js"></script>
+  <script src="auth/signup.directive.js"></script>
+
 
   <script type="text/javascript" src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
 

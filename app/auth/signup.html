@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <form novalidate class="form">
+        <div class="form-group">
+          <ul class="list-inline">
+            <li>
+              <input class="form-control" type="text" ng-model='user.firstname'  placeholder="Firstname">
+            </li>
+            <li>
+              <input class="form-control" type="text" ng-model='user.lastname'  placeholder="Lastname">
+            </li>
+          </ul>
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="text" ng-model='user.email'  placeholder="john@doe.com">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" ng-model='user.password' placeholder="Password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" ng-model='user.confirmpass' placeholder="Comfirm Password">
+        </div>
+        <div class="form-group">
+          <input class="btn btn-primary" type="submit" ng-click="signup()" value="Log In">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

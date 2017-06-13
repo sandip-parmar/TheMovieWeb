@@ -1,6 +1,9 @@
 angular.module('navigation')
-  .directive('navigationBar', {
-    restrict: 'E',
-    templateUrl: 'navigation/navigation.html',
-    controller: NavigationCtrl
+  .directive('navigationBar', function(){
+    return {
+      restrict: 'E',
+      scope: {},
+      templateUrl: 'navigation/navigation.html',
+      controller: 'NavigationCtrl'
+    }
   });

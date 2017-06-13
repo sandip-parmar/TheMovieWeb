@@ -1,7 +1,7 @@
 angular.module('shared')
   .factory('MovieService', function($http, Configuration){
 
-
+      baseUrl = Configuration.baseUrl;
       moviesBaseUrl = Configuration.moviesBaseUrl;
       apiVersion = Configuration.apiVersion;
       apiKey = Configuration.apiKey;
@@ -18,13 +18,13 @@ angular.module('shared')
         getTopRatedMovies: getTopRatedMovies,
         getMovie : getMovie,
         getMovieCast: getMovieCast,
-        getMovieRecommendation: getMovieRecommendation
+        getMovieRecommendation: getMovieRecommendation,
+        getMovieBySearch: getMovieBySearch
       };
 
       return MovieService;
 
       function getPopularMovies(pageValue){
-            console.log("getPopularMovies");
           return $http.get(moviesBaseUrl +
                           'popular?api_key=' + apiKey +
                           '&language=' + language +
@@ -69,8 +69,21 @@ angular.module('shared')
           moviesBaseUrl +
           id +
           '/recommendations' +
-          '?api_key=' + this.apiKey,
+          '?api_key=' + apiKey,
           {cache: false}
+        )
+      };
+
+      //https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
+      function getMovieBySearch(name){
+        return $http.get(
+              baseUrl +
+              apiVersion +
+              "search/" +
+              "movie?" +
+              "api_key=" + apiKey + "&" +
+              "query=" + name,
+              {cache: true}
         )
       };
 });

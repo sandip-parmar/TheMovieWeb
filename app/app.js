@@ -6,12 +6,20 @@ angular.module('myApp', [
   'shared',
   'movies',
   'movieDetails',
-  'Config'
+  'Config',
+  'auth',
+  'navigation'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
   $routeProvider
+    .when('/login', {
+      template: '<login></login>'
+    })
+    .when('/signup', {
+      template: '<signup></signup>'
+    })
     .when('/movies', {
       template: '<all-movies></all-movies>'
     })
