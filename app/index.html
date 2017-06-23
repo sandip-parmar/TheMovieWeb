@@ -48,6 +48,7 @@
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="app.js"></script>
+  <script src="app.config.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
@@ -61,7 +62,6 @@
   <script src="movie-details/movie-details.module.js"></script>
   <script src="movie-details/movie-details.component.js"></script>
   <script src="movie-details/movie-details.controller.js"></script>
-  <script src="app.config.js"></script>
   <script src="movie-details/movie.directive.js"></script>
   <script src="movie-details/movie-widget.controller.js"></script>
 
@@ -72,10 +72,9 @@
 
   <!-- Auth module -->
   <script src="auth/auth.module.js"></script>
-  <script src="auth/auth.service.js"></script>
   <script src="auth/auth.controller.js"></script>
-  <script src="auth/login.directive.js"></script>
-  <script src="auth/signup.directive.js"></script>
+  <script src="auth/auth.factory.js"></script>
+  <script src="auth/auth.component.js"></script>
 
 
   <script type="text/javascript" src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
@@ -89,5 +88,23 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
   integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
   crossorigin="anonymous"></script>
+
+  <!-- Firebase Dependencies -->
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDsK4384NXqCREHIrM6xKbpX_tNZRdCqlw",
+      authDomain: "themovieweb-66a3c.firebaseapp.com",
+      databaseURL: "https://themovieweb-66a3c.firebaseio.com",
+      projectId: "themovieweb-66a3c",
+      storageBucket: "themovieweb-66a3c.appspot.com",
+      messagingSenderId: "11884661829"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 </body>
 </html>

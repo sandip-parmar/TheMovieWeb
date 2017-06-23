@@ -11,6 +11,10 @@ angular.module('movieDetails')
     this.imageBaseUrl = MovieService.baseImageUrlw300;
     this.profileBaseUrl = MovieService.baseImageUrlw130;
 
+    this.addToFav = function(id){
+      Session.favourite(id);
+    }
+
     this.setTab = function(tabValue){
       this.tab = tabValue;
     }

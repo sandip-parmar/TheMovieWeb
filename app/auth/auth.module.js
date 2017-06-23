@@ -1,1 +1,1 @@
-angular.module('auth', ['ngRoute']);
+angular.module('auth', ['firebase']);

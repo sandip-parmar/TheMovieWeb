@@ -5,10 +5,11 @@ angular.module('myApp', [
   'ngRoute',
   'shared',
   'movies',
-  'movieDetails',
   'Config',
+  'movieDetails',
   'auth',
-  'navigation'
+  'navigation',
+  'firebase'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
@@ -25,6 +26,9 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     })
     .when('/movie/:movieId',{
       template: '<movie-details></movie-details>'
+    })
+    .when('/dashboard', {
+      template: '<all-movies></all-movies>',
     })
     .otherwise({redirectTo: '/movies'});
 }]);
