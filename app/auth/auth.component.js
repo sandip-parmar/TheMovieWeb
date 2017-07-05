@@ -4,7 +4,7 @@ angular.module('auth')
     templateUrl: 'auth/signup.html',
     controller: 'AuthController'
   })
-  .component('login', {
+  .component('signin', {
     templateUrl: 'auth/login.html',
     controller: 'AuthController'
   });

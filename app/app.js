@@ -9,26 +9,43 @@ angular.module('myApp', [
   'movieDetails',
   'auth',
   'navigation',
-  'firebase'
+  'firebase',
+  'ui.router'
 ]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
+config(['$stateProvider', function($stateProvider) {
 
-  $routeProvider
-    .when('/login', {
-      template: '<login></login>'
-    })
-    .when('/signup', {
-      template: '<signup></signup>'
-    })
-    .when('/movies', {
-      template: '<all-movies></all-movies>'
-    })
-    .when('/movie/:movieId',{
-      template: '<movie-details></movie-details>'
-    })
-    .when('/dashboard', {
-      template: '<all-movies></all-movies>',
-    })
-    .otherwise({redirectTo: '/movies'});
+  var moviesState = {
+    name: 'movies',
+    url: '/movies',
+    template: '<all-movies></all-movies>'
+  };
+
+  var movieIdState = {
+    name: 'movie',
+    url: '/movie/{movieId}',
+    template: '<movie-details></movie-details>'
+  };
+
+  var dashboardState = {
+    name: 'dashboard',
+    url: '/dashboard',
+    template: '<all-movies></all-movies>'
+  };
+
+  $stateProvider.state(moviesState);
+  $stateProvider.state(movieIdState);
+  $stateProvider.state(dashboardState);
+
+  // $routeProvider
+  //
+  //   .when('/movies', {
+  //     template: '<all-movies></all-movies>'
+  //   })
+  //   .when('/movie/:movieId',{
+  //     template: '<movie-details></movie-details>'
+  //   })
+  //   .when('/dashboard', {
+  //     template: '<all-movies></all-movies>',
+  //   })
+  //   .otherwise({redirectTo: '/movies'});
 }]);
