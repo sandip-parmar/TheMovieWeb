@@ -1,5 +1,6 @@
 angular.module('auth')
-  .controller('AuthController', ['$scope', 'Auth', function($scope, Auth){
+  .controller('AuthController', ['$scope', 'Auth', '$location',
+        function($scope, Auth, $location){
 
       $scope.email = '';
       $scope.password = '';
@@ -11,6 +12,8 @@ angular.module('auth')
           .then(
             function(firebaseUser){
               $scope.message = "User created with uid: " + firebaseUser.uid;
+              console.log($scope.message);
+              $location.path("/movies");
             },
             function(error){
               $scope.error = error;
@@ -23,6 +26,7 @@ angular.module('auth')
             .then(
               function(firebaseUser){
                 console.log("Signed in as:", firebaseUser.uid);
+                $location.path('/movies');
               },
               function(error){
                 console.log(error);
