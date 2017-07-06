@@ -46,6 +46,7 @@ angular.module('shared')
 
       // api to get movie based on id
       function getMovie(id){
+        console.log("MovieService call with id: " + id);
         return $http.get(moviesBaseUrl +
            id +
           '?api_key=' + apiKey +

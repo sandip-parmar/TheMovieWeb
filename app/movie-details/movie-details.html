@@ -1,4 +1,6 @@
 <div class="container">
+
+  {{ $ctrl.movie_id}}
   <div class="row">
     <div class="col-md-4">
       <img ng-src="{{$ctrl.movieDetails.imageUrl}}" alt="{{ $ctrl.movieDetails.original_title }}">
@@ -12,7 +14,7 @@
           <li>
             <div class="circle" id="rating_circle"></div>
           </li>
-          <li><a ng-click="addToFav({{movieDetails.id}})"><span class="glyphicon glyphicon-th-list" data-toggle="tooltip" data-placement="bottom" title="Create List"></span></a><li>
+          <li><a ng-click="addToFav(movieDetails.id)"><span class="glyphicon glyphicon-th-list" data-toggle="tooltip" data-placement="bottom" title="Create List"></span></a><li>
           <li><a href="#"><span class="glyphicon glyphicon-heart" data-toggle="tooltip" data-placement="bottom" title="Mark as Favourite"></span></a><li>
           <li><a href="#"><span class="glyphicon glyphicon-star-empty" data-toggle="tooltip" data-placement="bottom" title="Rating"></span></a><li>
           <li><a href="#"><span class="glyphicon glyphicon-bookmark" data-toggle="tooltip" data-placement="bottom" title="Add to your watchlist"></span></a><li>
@@ -46,7 +48,7 @@
         <div class="movieCastCarousel">
           <div class='panel panel-default col-md-3 movie-cast' ng-repeat='member in $ctrl.movieCast | limitTo: 6'>
             <div class="panel-body">
-              <img ng-src='{{ $ctrl.profileBaseUrl}}{{ member.profile_path }}'>
+              <img ng-src='{{ $ctrl.profileBaseUrl + member.profile_path}}'>
             </div>
             <div class="panel-footer">
               <p>{{ member.name }}</p>

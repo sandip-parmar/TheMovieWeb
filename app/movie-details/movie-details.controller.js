@@ -1,13 +1,26 @@
 angular.module('movieDetails')
-  .controller('MovieDetailsController', [ '$routeParams', '$http', 'MovieService', function MovieDetailsController($routeParams, $http, MovieService){
+  .controller('MovieDetailsController', ['$scope','MovieService', function($scope, MovieService){
 
-    this.queryValue = $routeParams.movieId;
+    console.log($scope.$parent.$resolve.movie.data);
+
+    this.queryValue = this.movieId;
 
     var self = this;
     this.tab = 1;
-    this.movieDetails = {};
-    this.movieCast = {};
-    this.recommendedMovies = {};
+
+    // retrieve movie data from resolve
+    this.movieDetails = $scope.$parent.$resolve.movie.data;
+
+    // add full image url in movieDetails object
+    this.movieDetails.imageUrl = MovieService.baseImageUrlw300 + this.movieDetails.poster_path;
+
+    // retrieve movie cast data from resolve
+    this.movieCast = $scope.$parent.$resolve.cast.data.cast;
+
+    // retrieve recommended movies from resolve
+    this.recommendedMovies = $scope.$parent.$resolve.recommended.data.results;
+    console.log(this.recommendedMovies);
+
     this.imageBaseUrl = MovieService.baseImageUrlw300;
     this.profileBaseUrl = MovieService.baseImageUrlw130;
 
@@ -23,37 +36,4 @@ angular.module('movieDetails')
       return this.tab === tabValue;
     }
 
-    // Get movie data
-
-      MovieService.getMovie(this.queryValue)
-      .then(
-        function(success){
-          self.movieDetails = success.data;
-          self.movieDetails.imageUrl = self.imageBaseUrl + self.movieDetails.poster_path;
-        },
-        function(error){
-
-        }
-      );
-
-    // get movie-cast data
-    MovieService.getMovieCast(this.queryValue)
-      .then(
-        function(success){
-          self.movieCast = success.data.cast;
-        },
-        function(error){
-
-        }
-      );
-
-      MovieService.getMovieRecommendation(this.queryValue)
-        .then(
-          function(success){
-            self.recommendedMovies = success.data.results;
-          },
-          function(error){
-
-          }
-        );
   }]);

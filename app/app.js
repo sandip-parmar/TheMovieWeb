@@ -23,8 +23,22 @@ config(['$stateProvider', function($stateProvider) {
 
   var movieIdState = {
     name: 'movie',
-    url: '/movie/{movieId}',
-    template: '<movie-details></movie-details>'
+    url: '/movie/{movie_id}',
+    component: 'movieDetails',
+    resolve: {
+      movie: function(MovieService, $transition$){
+        console.log($transition$.params().movie_id);
+        return MovieService.getMovie($transition$.params().movie_id);
+      },
+      cast: function(MovieService, $transition$){
+        console.log($transition$.params().movie_id);
+        return MovieService.getMovieCast($transition$.params().movie_id);
+      },
+      recommended: function(MovieService, $transition$){
+        console.log($transition$.params().movie_id);
+        return MovieService.getMovieRecommendation($transition$.params().movie_id);
+      }
+    }
   };
 
   var dashboardState = {
