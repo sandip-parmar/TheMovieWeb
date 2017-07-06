@@ -10,7 +10,8 @@ angular.module('myApp', [
   'auth',
   'navigation',
   'firebase',
-  'ui.router'
+  'ui.router',
+  'profile'
 ]).
 config(['$stateProvider', function($stateProvider) {
 

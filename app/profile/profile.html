@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="form-group">
+        <input type="text" ng-blur="$ctrl.updateName()" name="firstname" ng-model='$ctrl.displayName'
+          class="form-control" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <input type="text" name="email" ng-blur="$ctrl.updateEmail()" ng-model='$ctrl.email'
+          class="form-control" placeholder="Email">
+        <label for="email_error" ng-if="$ctrl.email_error">{{ $ctrl.email_error}}</label>
+      </div>
+      <div class="form-group">
+        <input type="text" name="password" ng-blur="$ctrl.updatePassword()" ng-model='$ctrl.password'
+          class="form-control" placeholder="New Password">
+        <label for="email_error" ng-if="$ctrl.password_error">{{ $ctrl.password_error }}</label>
+      </div>
+    </div>
+  </div>
+</div>
