@@ -19,6 +19,7 @@ angular.module('shared')
 
     // Add movie to favourite list
     function addToFavourite(favMovieObject){
+      var user = Auth.$getAuth();
       if(user){
         var favListRef = ref.child(user.uid).child(favMovieObject.id);
         var favList = $firebaseObject(favListRef);
@@ -43,10 +44,10 @@ angular.module('shared')
     // Check if movie is in favourite list
     function isFavourite(id){
 
+      var user = Auth.$getAuth();
       var favListRef = ref.child(user.uid).child(id);
-
       var movie = $firebaseObject(favListRef);
-      
+
       return movie;
     }
 

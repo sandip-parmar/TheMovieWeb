@@ -27,15 +27,12 @@ config(['$stateProvider', function($stateProvider) {
     component: 'movieDetails',
     resolve: {
       movie: function(MovieService, $transition$){
-        console.log($transition$.params().movie_id);
         return MovieService.getMovie($transition$.params().movie_id);
       },
       cast: function(MovieService, $transition$){
-        console.log($transition$.params().movie_id);
         return MovieService.getMovieCast($transition$.params().movie_id);
       },
       recommended: function(MovieService, $transition$){
-        console.log($transition$.params().movie_id);
         return MovieService.getMovieRecommendation($transition$.params().movie_id);
       }
     }
