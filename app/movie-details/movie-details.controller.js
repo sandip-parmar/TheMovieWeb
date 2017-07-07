@@ -1,5 +1,5 @@
 angular.module('movieDetails')
-  .controller('MovieDetailsController', ['$scope','MovieService', function($scope, MovieService){
+  .controller('MovieDetailsController', ['$scope','MovieService', 'Personalize', function($scope, MovieService, Personalize){
 
     console.log($scope.$parent.$resolve.movie.data);
 
@@ -24,8 +24,22 @@ angular.module('movieDetails')
     this.imageBaseUrl = MovieService.baseImageUrlw300;
     this.profileBaseUrl = MovieService.baseImageUrlw130;
 
-    this.addToFav = function(id){
-      Session.favourite(id);
+    // check if movie is part for favourite list
+    this.isFavourite = Personalize.isFavourite(this.movieDetails.id);
+
+    // add movie to favourite
+    this.addToFav = function(){
+      var movieFavObject = {
+        id: this.movieDetails.id,
+        poster_path: this.movieDetails.imageUrl,
+        name: this.movieDetails.original_title
+      };
+      console.log(movieFavObject);
+      Personalize.addToFavourite(movieFavObject).then(function(success){
+        console.log("Movie added successfully.");
+      },function(error){
+        console.log(error);
+      });
     }
 
     this.setTab = function(tabValue){

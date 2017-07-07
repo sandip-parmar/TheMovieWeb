@@ -14,8 +14,11 @@
           <li>
             <div class="circle" id="rating_circle"></div>
           </li>
-          <li><a ng-click="addToFav(movieDetails.id)"><span class="glyphicon glyphicon-th-list" data-toggle="tooltip" data-placement="bottom" title="Create List"></span></a><li>
-          <li><a href="#"><span class="glyphicon glyphicon-heart" data-toggle="tooltip" data-placement="bottom" title="Mark as Favourite"></span></a><li>
+          <li><a><span class="glyphicon glyphicon-th-list" data-toggle="tooltip" data-placement="bottom" title="Create List"></span></a><li>
+          <li><a href="#">
+            <span ng-click="$ctrl.addToFav()" ng-if="!$ctrl.isFavourite.id" class="glyphicon glyphicon-heart-empty" data-toggle="tooltip" data-placement="bottom" title="Mark as Favourite"></span>
+            <span ng-if="$ctrl.isFavourite.id" class="glyphicon glyphicon-heart" data-toggle="tooltip" data-placement="bottom" title="Favourite movie"></span>
+          </a><li>
           <li><a href="#"><span class="glyphicon glyphicon-star-empty" data-toggle="tooltip" data-placement="bottom" title="Rating"></span></a><li>
           <li><a href="#"><span class="glyphicon glyphicon-bookmark" data-toggle="tooltip" data-placement="bottom" title="Add to your watchlist"></span></a><li>
         </ul>

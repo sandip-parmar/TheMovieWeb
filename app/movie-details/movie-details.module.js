@@ -1,1 +1,1 @@
-angular.module('movieDetails', ['ngRoute', 'movies', 'Config']);
+angular.module('movieDetails', ['ngRoute', 'movies', 'Config', 'shared']);
